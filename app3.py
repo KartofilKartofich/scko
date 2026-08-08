@@ -9,7 +9,7 @@ def detect_pos_by_russian(word):
     if not isinstance(word, str) or not word:
         return "NOUN"
     w = word.strip().lower()
-    if w.endswith(("ть", "ться", "ти", "тись")):
+    if w.endswith(("ить", "еть", "ать", "ять", "уть", "ють", "ться", "ти", "тись")):
         return "VERB"
     if w.endswith(("ый", "ий", "ой", "ая", "яя", "ое", "ее")):
         return "ADJECTIVE"
@@ -33,6 +33,11 @@ def get_filtered_types(pos, translation):
     for i in ["NOUN_IMMUT", "NOUN_NEUT_plur", "NOUN_NEUT_sing"]:
         if i not in filtered: 
             filtered.append(i)
+
+    filtered.append("============")
+    for i in all_types:
+        if i not in filtered: 
+            filtered.append(i)    
         
     return filtered if filtered else all_types
 
