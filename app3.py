@@ -21,7 +21,7 @@ def get_filtered_types(pos, translation):
         return all_types
     
     t = translation.strip().lower()
-    if t.endswith(("о", "jе")):
+    if t.endswith(("о", "е")):
         filtered = [x for x in all_types if "NEUT" in x]
     elif t.endswith(("а", "я")):
         filtered = [x for x in all_types if "FEM" in x]
